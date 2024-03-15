@@ -9,28 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff7c3a7e-b892-4b3a-91cc-37fc561f64c6" name="Changes" comment="Created User model, IndexView and StartServlet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/CartServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/GoodsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Firebase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Good.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/appstyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/indexapplication.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/emptyPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/footerPartial.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/headerPartial.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/loginFormPartial.html" afterDir="false" />
+    <list default="true" id="ff7c3a7e-b892-4b3a-91cc-37fc561f64c6" name="Changes" comment="Firebase is set">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/StartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/StartServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Firebase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Firebase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/view/IndexView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/view/IndexView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/headerPartial.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/headerPartial.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +345,16 @@
       <workItem from="1710247468194" duration="2645000" />
       <workItem from="1710251022692" duration="13000" />
       <workItem from="1710251153178" duration="6353000" />
-      <workItem from="1710265341893" duration="256000" />
+      <workItem from="1710265341893" duration="623000" />
+      <workItem from="1710266080259" duration="52000" />
+      <workItem from="1710337927174" duration="2151000" />
+      <workItem from="1710340292610" duration="365000" />
+      <workItem from="1710340738818" duration="134000" />
+      <workItem from="1710340964435" duration="641000" />
+      <workItem from="1710493809744" duration="3603000" />
+      <workItem from="1710498259246" duration="7000" />
+      <workItem from="1710502895965" duration="72000" />
+      <workItem from="1710503168174" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="Created User model, IndexView and StartServlet">
       <option name="closed" value="true" />
@@ -370,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710252120053</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Firebase is set">
+      <option name="closed" value="true" />
+      <created>1710265944648</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710265944648</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +392,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created User model, IndexView and StartServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created User model, IndexView and StartServlet" />
+    <MESSAGE value="Firebase is set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Firebase is set" />
   </component>
 </project>
