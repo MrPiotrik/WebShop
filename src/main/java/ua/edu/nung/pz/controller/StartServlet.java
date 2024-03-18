@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import ua.edu.nung.pz.model.Firebase;
 import ua.edu.nung.pz.model.User;
 import ua.edu.nung.pz.view.IndexView;
@@ -22,6 +23,9 @@ public class StartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String body = "";
         String context = "";
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute(User.USER_SESSION_NAME);
+        String username = user == null ? "" : user.getDisplayName();
 
         switch (request.getPathInfo()) {
             case "/contacts":
@@ -40,17 +44,15 @@ public class StartServlet extends HttpServlet {
 
 
         body = IndexView.getInstance().getBody(
-                IndexView.getInstance().getHeader(""),
+                IndexView.getInstance().getHeader(username),
                 IndexView.getInstance().getFooter(""),
                 context);
 
         out.println(IndexView.getInstance().getPage("Green Shop", body));
 
-        //TODO: remove after successfully testing
-        User user = new User();
-        user.setEmail("email1@email.com");
-        user.setPassword("112211221122");
-        user.setDisplayName("Test User");
+//        user.setEmail("email1@email.com");
+//        user.setPassword("112211221122");
+//        user.setDisplayName("Test User");
     }
 
     @Override
@@ -58,6 +60,7 @@ public class StartServlet extends HttpServlet {
         String contextPath = request.getContextPath();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        HttpSession httpSession;
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
@@ -68,6 +71,9 @@ public class StartServlet extends HttpServlet {
             String firebaseResponse = firebase.signInWithEmailAndPassword(user.getEmail(), user.getPassword());
             if(firebaseResponse.equals(Firebase.PASSWORD_OK)) {
                 System.out.println(Firebase.PASSWORD_OK);
+                user.setDisplayName("Best User");
+                httpSession = request.getSession();
+                httpSession.setAttribute(User.USER_SESSION_NAME, user);
             }  else {
                 System.out.println("Wrong Password");
             }

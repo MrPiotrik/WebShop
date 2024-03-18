@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff7c3a7e-b892-4b3a-91cc-37fc561f64c6" name="Changes" comment="Firebase is set">
+    <list default="true" id="ff7c3a7e-b892-4b3a-91cc-37fc561f64c6" name="Changes" comment="Added registration and authentication using Firebase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/StartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/controller/StartServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Firebase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/Firebase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/view/IndexView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/nung/pz/view/IndexView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/headerPartial.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/headerPartial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/loginFormPartial.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +355,11 @@
       <workItem from="1710493809744" duration="3603000" />
       <workItem from="1710498259246" duration="7000" />
       <workItem from="1710502895965" duration="72000" />
-      <workItem from="1710503168174" duration="29000" />
+      <workItem from="1710503168174" duration="506000" />
+      <workItem from="1710510799154" duration="4853000" />
+      <workItem from="1710742437782" duration="1149000" />
+      <workItem from="1710747751795" duration="812000" />
+      <workItem from="1710772302100" duration="3121000" />
     </task>
     <task id="LOCAL-00001" summary="Created User model, IndexView and StartServlet">
       <option name="closed" value="true" />
@@ -372,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710265944648</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added registration and authentication using Firebase">
+      <option name="closed" value="true" />
+      <created>1710503429520</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710503429520</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,6 +406,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created User model, IndexView and StartServlet" />
     <MESSAGE value="Firebase is set" />
-    <option name="LAST_COMMIT_MESSAGE" value="Firebase is set" />
+    <MESSAGE value="Added registration and authentication using Firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added registration and authentication using Firebase" />
   </component>
 </project>
