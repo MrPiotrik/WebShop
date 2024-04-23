@@ -22,30 +22,17 @@ public class GoodsServlet extends HttpServlet {
 
         GoodRepository goodRepository = new GoodRepository();
         ArrayList<Good>  goods = goodRepository.getByBrand("Naturalis");
+
         String body = goods.stream().map(good -> {
-            String goodId = String.valueOf(good.getId());
             return "<div class=\"col-12 col-sm-6 col-lg-4 col-xl-3 my-2\">" +
-                    "<div class=\"card\" style=\"width: 18rem;\">\n" +
-                    "<div id=\"carouselExample" + goodId + "\" class=\"carousel slide\">" +
-                    "<div class=\"carousel-inner\">"+
-                    "<div class=\"carousel-item active\">"+
-                    "<img src=\"/img/" + (good.getPhoto().length > 0 ? good.getPhoto()[0] : "") + "\" class=\"d-block w-100\" alt=\"good image\">" +
-                    "</div>"+
-                    "<div class=\"carousel-item\">"+
-                    "<img src=\"/img/" + (good.getPhoto().length > 1 ? good.getPhoto()[1] : "") + "\" class=\"d-block w-100\" alt=\"good image\">" +
-                    "</div>"+
-                    "</div>"+
-                    "<button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExample" + goodId + "\" data-bs-slide=\"prev\">"+
-                    "<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>"+
-                    "<span class=\"visually-hidden\">Previous</span>"+
-                    "</button>"+
-                    "<button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExample" + goodId + "\" data-bs-slide=\"next\">"+
-                    "<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>"+
-                    "<span class=\"visually-hidden\">Next</span>"+
-                    "</button>"+
-                    "</div>"+
+                    "<div class=\"card\">\n" +
+                    "<img src=\"/img/" + (good.getPhoto().length > 0 ? good.getPhoto()[0] : "") + "\" class=\"card-img-top\" alt=\"good image\">" +
                     "  <div class=\"card-body\">\n" +
-                    "    <h5 class=\"card-title\">" + good.getName() + "</h5>\n" +
+                    "    <h5 class=\"card-title position-relative me-4\">" + good.getName() +
+                    "<span class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success\">" +
+                    good.getLikes() +
+                    "</span>" +
+                    "</h5>\n" +
                     "    <h6 class=\"card-subtitle mb-2 text-body-secondary\">Price:" + good.getPrice().getFor_client() + " UAH</h6>\n" +
                     "    <p class=\"card-text\">" + good.getShortDescription() + "</p>\n" +
                     "    <a href=\"#\" class=\"card-link\">Card link</a>\n" +
