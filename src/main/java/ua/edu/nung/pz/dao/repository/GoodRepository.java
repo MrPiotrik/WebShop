@@ -54,7 +54,7 @@ public class GoodRepository {
                     photos = new String[jsonArray.size()];
                     int i = 0;
                     for (JsonElement jsonElement1 : jsonArray) {
-                        photos[i++] = jsonElement.getAsString();
+                        photos[i++] = jsonElement1.getAsString();
                     }
                 }
                 Good good = new Good(
