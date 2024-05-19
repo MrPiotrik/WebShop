@@ -1,15 +1,17 @@
 package ua.edu.nung.pz.dao.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Cart {
     private User user;
-    private Good[] goods;
+    private List<Good> goods = new ArrayList<>();
 
     public Cart() {
     }
 
-    public Cart(User user, Good[] goods) {
+    public Cart(User user, List<Good> goods) {
         this.user = user;
         this.goods = goods;
     }
@@ -22,19 +24,23 @@ public class Cart {
         this.user = user;
     }
 
-    public Good[] getGoods() {
+    public List<Good> getGoods() {
         return goods;
     }
 
-    public void setGoods(Good[] goods) {
+    public void setGoods(List<Good> goods) {
         this.goods = goods;
+    }
+
+    public void addGood(Good good) {
+        this.goods.add(good);
     }
 
     @Override
     public String toString() {
         return "Cart{" +
                 "user=" + user +
-                ", goods=" + Arrays.toString(goods) +
+                ", goods=" + goods +
                 '}';
     }
 }

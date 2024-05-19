@@ -2,12 +2,12 @@ package ua.edu.nung.pz.dao.repository;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import ua.edu.nung.pz.dao.entity.Good;
 import ua.edu.nung.pz.dao.entity.Price;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,7 +48,7 @@ public class GoodRepository {
             while (resultSet.next()) {
                 String photoJson = resultSet.getString("photo");
                 JsonElement jsonElement = JsonParser.parseString(photoJson);
-                String photos[] = new String[0];
+                String[] photos = new String[0];
                 if (jsonElement.isJsonArray()) {
                     JsonArray jsonArray = jsonElement.getAsJsonArray();
                     photos = new String[jsonArray.size()];
@@ -82,5 +82,55 @@ public class GoodRepository {
         }
 
         return goods;
+    }
+
+    public Good findById(long id) {
+        DataSource dataSource = new DataSource();
+        Good good = null;
+        String sql = "SELECT g.*, p.* FROM goods g LEFT JOIN prices p ON g.id = p.good_id WHERE g.id = ? AND p.deleted_at IS NULL";
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+        ) {
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                String photoJson = resultSet.getString("photo");
+                JsonElement jsonElement = JsonParser.parseString(photoJson);
+                String[] photos = new String[0];
+                if (jsonElement.isJsonArray()) {
+                    JsonArray jsonArray = jsonElement.getAsJsonArray();
+                    photos = new String[jsonArray.size()];
+                    int i = 0;
+                    for (JsonElement jsonElement1 : jsonArray) {
+                        photos[i++] = jsonElement1.getAsString();
+                    }
+                }
+                good = new Good(
+                        resultSet.getLong(1),
+                        resultSet.getString("name"),
+                        resultSet.getString("description"),
+                        resultSet.getString("brand"),
+                        photos,
+                        resultSet.getInt("likes"),
+                        new Price(
+                                resultSet.getLong(7),
+                                resultSet.getLong("good_id"),
+                                resultSet.getDouble("from_supplier"),
+                                resultSet.getDouble("for_client"),
+                                resultSet.getInt("income"),
+                                resultSet.getInt("outcome"),
+                                resultSet.getString("created_at"),
+                                resultSet.getString("deleted_at")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return good;
     }
 }

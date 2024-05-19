@@ -77,37 +77,35 @@ public class GoodsServlet extends HttpServlet {
     }
 
     private Cart addItem(HttpServletRequest request, HttpServletResponse response, User user) throws IOException {
-        Cart cart = new Cart();
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            request.getSession().setAttribute("cart", cart);
+        }
 
         String priceStr = request.getParameter("priceid");
         if (priceStr != null) {
-            long priceId = 0l;
+            long priceId = 0L;
             try {
                 priceId = Long.parseLong(priceStr);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
-            // check if user logged in
-            if(user != null) {
-
-                Order order = new Order(
-                        0l,
-                        user.getId(),
-                        priceId,
-                        false,
-                        "2024-04-29",
-                        null
-                );
-                System.out.println("order " + order);
-                OrderRepository orderRepository = new OrderRepository();
-                orderRepository.saveOrUpdate(order);
-            }
 
             if (priceId > 0) {
+                GoodRepository goodRepository = new GoodRepository();
+                Good good = goodRepository.findById(priceId);
+
+                if (good != null) {
+                    cart.addGood(good);
+                    request.getSession().setAttribute("cart", cart);
+                }
+
                 response.sendRedirect("/goods/");
             }
         }
 
         return cart;
     }
+
 }
