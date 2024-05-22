@@ -20,6 +20,10 @@ public class Price {
     public Price() {
     }
 
+    public Price(double for_client) {
+        this.for_client = for_client;
+    }
+
     public Price(long id, long good_id, double from_supplier, double for_client, int income, int outcome, String created_at, String deleted_at) {
         this.id = id;
         this.good_id = good_id;

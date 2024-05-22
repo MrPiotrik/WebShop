@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.logging.*;
+import ua.edu.nung.pz.dao.entity.Cart;
 import ua.edu.nung.pz.dao.entity.Firebase;
 import ua.edu.nung.pz.dao.entity.User;
 import ua.edu.nung.pz.dao.repository.UserRepository;
@@ -57,9 +58,16 @@ public class StartServlet extends HttpServlet {
 
         out.println(builderPage);
 
+        out.println("<script>");
+        out.println("document.addEventListener('DOMContentLoaded', function() {");
+        out.println("const cartItemCount = " + getCartItemCount(httpSession) + ";");
+        out.println("document.getElementById('cart-count').textContent = cartItemCount;");
+        out.println("});");
+        out.println("</script>");
+
         // TODO remove test code
         UserRepository userRepository = new UserRepository();
-        User user1 = userRepository.getUserByEmail("ihorlt@gmail.com");
+        User user1 = userRepository.getUserByEmail("ptr@gmail.com");
         System.out.println(user1);
 
 
@@ -84,7 +92,7 @@ public class StartServlet extends HttpServlet {
             String firebaseResponse = firebase.signInWithEmailAndPassword(user.getEmail(), user.getPassword());
             if(firebaseResponse.equals(Firebase.PASSWORD_OK)) {
                 System.out.println(Firebase.PASSWORD_OK);
-                user.setDisplayName("Best User");
+                user.setDisplayName("Petro");
                 httpSession = request.getSession();
                 httpSession.setAttribute(User.USER_SESSION_NAME, user);
                 logger.info("Successfully login " + user.getEmail());
@@ -138,5 +146,17 @@ public class StartServlet extends HttpServlet {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    private int getCartItemCount(HttpSession session) {
+        if (session != null) {
+            User user = (User) session.getAttribute(User.USER_SESSION_NAME);
+            if (user != null) {
+                Cart cart = (Cart) session.getAttribute("cart");
+                if (cart != null && cart.getGoods() != null) {
+                    return cart.getGoods().values().stream().mapToInt(Integer::intValue).sum();
+                }
+            }
+        }
+        return 0;
     }
 }

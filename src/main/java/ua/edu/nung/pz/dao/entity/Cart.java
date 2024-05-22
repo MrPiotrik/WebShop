@@ -1,17 +1,16 @@
 package ua.edu.nung.pz.dao.entity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cart {
     private User user;
-    private List<Good> goods = new ArrayList<>();
+    private Map<Good, Integer> goods = new HashMap<>();
 
     public Cart() {
     }
 
-    public Cart(User user, List<Good> goods) {
+    public Cart(User user, Map<Good, Integer> goods) {
         this.user = user;
         this.goods = goods;
     }
@@ -24,16 +23,16 @@ public class Cart {
         this.user = user;
     }
 
-    public List<Good> getGoods() {
+    public Map<Good, Integer> getGoods() {
         return goods;
     }
 
-    public void setGoods(List<Good> goods) {
+    public void setGoods(Map<Good, Integer> goods) {
         this.goods = goods;
     }
 
-    public void addGood(Good good) {
-        this.goods.add(good);
+    public void addGood(Good good, int quantity) {
+        this.goods.put(good, quantity);
     }
 
     @Override
