@@ -8,8 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import ua.edu.nung.pz.dao.entity.Cart;
 import ua.edu.nung.pz.dao.entity.Good;
+import ua.edu.nung.pz.dao.entity.Order;
 import ua.edu.nung.pz.dao.entity.User;
 import ua.edu.nung.pz.dao.repository.GoodRepository;
+import ua.edu.nung.pz.dao.repository.OrderRepository;
 import ua.edu.nung.pz.view.MainPage;
 
 import java.io.IOException;
@@ -123,7 +125,20 @@ public class GoodsServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
+            if(user != null) {
 
+                Order order = new Order(
+                        0l,
+                        user.getId(),
+                        priceId,
+                        false,
+                        "2024-04-29",
+                        null
+                );
+                System.out.println("order " + order);
+                OrderRepository orderRepository = new OrderRepository();
+                orderRepository.saveOrUpdate(order);
+            }
             if (priceId > 0) {
                 GoodRepository goodRepository = new GoodRepository();
                 Good good = goodRepository.findById(priceId);
